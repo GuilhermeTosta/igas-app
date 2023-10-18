@@ -15,11 +15,11 @@ const Preload = () => {
 
       <Box>
         <AdviseText>SIMULATION ONLY</AdviseText>
-        <Button>
-          <AdviseText onPress={() => navigation.navigate('SignIn')}>Logged</AdviseText>
+        <Button onPress={() => navigation.navigate('SignIn')}>
+          <AdviseText>Logged</AdviseText>
         </Button>
-        <Button>
-          <AdviseText onPress={() => navigation.navigate('SignUp')}>Not Logged</AdviseText>
+        <Button onPress={() => navigation.navigate('SignUp')}>
+          <AdviseText>Not Logged</AdviseText>
         </Button>
       </Box>
     </Container>

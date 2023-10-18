@@ -21,40 +21,44 @@ const SignUp = () => {
   };
 
   return (
-    <Container>
-      <CredentialsContainer>
-        <Typography variant="h1" margin={16} text="Acesse sua conta" />
+    <>
+      <Container>
+        <CredentialsContainer>
+          <Typography variant="h1" margin={16} text="Acesse sua conta" />
 
-        <InputField
-          placeholder="Email"
-          value={email}
-          onChangeText={(value) => setEmail(value)}
-          isPassword={false}
-        />
-        <InputField
-          placeholder="Password"
-          value={password}
-          onChangeText={(value) => setPassword(value)}
-          isPassword={true}
-        />
-        <CustomButton onPress={handleClickOnEnter}>
-          <CustomButtonText>ENTRAR</CustomButtonText>
-        </CustomButton>
+          <InputField
+            placeholder="Email"
+            value={email}
+            onChangeText={(value) => setEmail(value)}
+            isPassword={false}
+          />
+          <InputField
+            placeholder="Password"
+            value={password}
+            onChangeText={(value) => setPassword(value)}
+            isPassword={true}
+          />
+          <CustomButton onPress={handleClickOnEnter}>
+            <CustomButtonText>ENTRAR</CustomButtonText>
+          </CustomButton>
 
-        <View style={{ flexDirection: 'row', gap: 15 }}>
-          <SignMessageButton onPress={() => console.log('*click*')}>
-            <SignMessageButtonText>Criar Conta</SignMessageButtonText>
-          </SignMessageButton>
-          <SignMessageButton onPress={() => console.log('*click*')}>
-            <SignMessageButtonText>Esqueceu a Senha?</SignMessageButtonText>
-          </SignMessageButton>
-        </View>
-      </CredentialsContainer>
-
+          <View style={{ flexDirection: 'row', gap: 15 }}>
+            <SignMessageButton onPress={() => console.log('*click*')}>
+              <SignMessageButtonText>Criar Conta</SignMessageButtonText>
+            </SignMessageButton>
+            <SignMessageButton onPress={() => console.log('*click*')}>
+              <SignMessageButtonText>Esqueceu a Senha?</SignMessageButtonText>
+            </SignMessageButton>
+          </View>
+        </CredentialsContainer>
+      </Container>
       <View style={{ flex: 0.5 }}>
-        <Image source={require('../../../assets/bottomImage.png')} />
+        <Image
+          source={require('../../../assets/bottomImage.png')}
+          style={{ height: 440, width: 440 }}
+        />
       </View>
-    </Container>
+    </>
   );
 };
 
