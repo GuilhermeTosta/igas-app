@@ -1,7 +1,9 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-import { Container, AdviseText, Button, Box } from './styles';
+import { Container, Box } from './styles';
+import { Typography } from '../../components/Typography/Typography';
+import Button from '../../components/Button/Button';
 
 const Preload = () => {
   const navigation = useNavigation();
@@ -9,17 +11,17 @@ const Preload = () => {
   return (
     <Container>
       <Box>
-        <AdviseText>DRAFT</AdviseText>
-        <AdviseText>Screen that verify if the user is logged in!</AdviseText>
+        <Typography bold variant="h1" size={25} text="DRAFT" />
+        <Typography variant="h2" text="Screen that verify if the user is logged in!" />
       </Box>
 
       <Box>
-        <AdviseText>SIMULATION ONLY</AdviseText>
-        <Button onPress={() => navigation.navigate('SignIn')}>
-          <AdviseText>Logged</AdviseText>
+        <Typography bold variant="h6" size={35} text="SIMULATION ONLY" />
+        <Button textColor="white" width={'50%'} onPress={() => navigation.navigate('SignIn')}>
+          Logged
         </Button>
-        <Button onPress={() => navigation.navigate('SignUp')}>
-          <AdviseText>Not Logged</AdviseText>
+        <Button textColor="white" width={'50%'} onPress={() => navigation.navigate('SignUp')}>
+          Not Logged
         </Button>
       </Box>
     </Container>

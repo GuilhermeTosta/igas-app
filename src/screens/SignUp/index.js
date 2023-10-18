@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import { View, Image } from 'react-native';
 
-import {
-  Container,
-  CustomButton,
-  SignMessageButton,
-  SignMessageButtonText,
-  CustomButtonText,
-  CredentialsContainer,
-} from './styles';
+import { Container, CredentialsContainer } from './styles';
 import InputField from '../../components/InputField/InputField';
 import { Typography } from '../../components/Typography/Typography';
+import Button from '../../components/Button/Button';
+import colors from '../../constants/colors';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -38,17 +33,29 @@ const SignUp = () => {
             onChangeText={(value) => setPassword(value)}
             isPassword={true}
           />
-          <CustomButton onPress={handleClickOnEnter}>
-            <CustomButtonText>ENTRAR</CustomButtonText>
-          </CustomButton>
+          <Button
+            text="ENTRAR"
+            textColor="white"
+            width={'100%'}
+            textSize={24}
+            onPress={handleClickOnEnter}
+          />
 
           <View style={{ flexDirection: 'row', gap: 15 }}>
-            <SignMessageButton onPress={() => console.log('*click*')}>
-              <SignMessageButtonText>Criar Conta</SignMessageButtonText>
-            </SignMessageButton>
-            <SignMessageButton onPress={() => console.log('*click*')}>
-              <SignMessageButtonText>Esqueceu a Senha?</SignMessageButtonText>
-            </SignMessageButton>
+            <Button
+              variant="text"
+              textSize={12}
+              text="Criar Conta"
+              textColor={colors.primaryButtonBackground}
+              onPress={() => console.log('*click*')}
+            />
+            <Button
+              variant="text"
+              textSize={12}
+              text="Esqueceu a Senha?"
+              textColor={colors.primaryButtonBackground}
+              onPress={() => console.log('*click*')}
+            />
           </View>
         </CredentialsContainer>
       </Container>

@@ -1,18 +1,9 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 import PropTypes from 'prop-types';
 
 import { variants } from './variants';
-
-const sizeOptions = {
-  tiny: 12,
-  small: 14,
-  medium: 16,
-  large: 18,
-  extraLarge: 22,
-  extraExtraLarge: 28,
-};
 
 export const Typography = ({
   align = 'left',
@@ -24,24 +15,29 @@ export const Typography = ({
   style,
   text,
   variant = 'regularText',
-  size = 'medium',
+  size,
+  bold,
 }) => {
   const variantStyles = variants[variant];
 
   return (
-    <Text
-      onPress={onPress}
-      style={{
-        fontSize: sizeOptions[size],
-        ...variantStyles,
-        color,
-        flex,
-        margin,
-        textAlign: align,
-        ...style,
-      }}>
-      {text || children}
-    </Text>
+    <View>
+      <Text
+        onPress={onPress}
+        style={{
+          ...variantStyles,
+          fontSize: size,
+          color,
+          flex,
+          margin,
+          textAlign: align,
+          textTransform: 'uppercase',
+          fontWeight: bold ? 500 : 400,
+          ...style,
+        }}>
+        {text || children}
+      </Text>
+    </View>
   );
 };
 
@@ -49,6 +45,7 @@ Typography.propTypes = {
   align: PropTypes.oneOf(['auto', 'center', 'justify', 'left', 'right']),
   children: PropTypes.node,
   flex: PropTypes.number,
+  bold: PropTypes.bool,
   margin: PropTypes.number,
   onPress: PropTypes.func,
   style: PropTypes.shape({}),
@@ -58,5 +55,5 @@ Typography.propTypes = {
   variant: PropTypes.oneOf(Object.keys(variants)),
   lineHeight: PropTypes.string,
   weight: PropTypes.oneOf(['normal', 'bold']),
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'extraLarge', 'extraExtraLarge']),
+  size: PropTypes.number,
 };
