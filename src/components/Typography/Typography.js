@@ -17,6 +17,7 @@ export const Typography = ({
   variant = 'regularText',
   size,
   bold,
+  uppercase,
 }) => {
   const variantStyles = variants[variant];
 
@@ -31,7 +32,7 @@ export const Typography = ({
           flex,
           margin,
           textAlign: align,
-          textTransform: 'uppercase',
+          textTransform: uppercase ? 'uppercase' : 'none',
           fontWeight: bold ? 500 : 400,
           ...style,
         }}>
@@ -46,6 +47,7 @@ Typography.propTypes = {
   children: PropTypes.node,
   flex: PropTypes.number,
   bold: PropTypes.bool,
+  uppercase: PropTypes.bool,
   margin: PropTypes.number,
   onPress: PropTypes.func,
   style: PropTypes.shape({}),

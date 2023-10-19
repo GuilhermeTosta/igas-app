@@ -13,6 +13,7 @@ const Button = ({
   textColor = 'black',
   width,
   textSize = 14,
+  uppercase = false,
 }) => {
   const variantStyles = variants[variant];
   return (
@@ -22,7 +23,7 @@ const Button = ({
         ...variantStyles,
         width,
       }}>
-      <Typography variant="h1" bold size={textSize} color={textColor}>
+      <Typography uppercase={uppercase} variant="h1" bold size={textSize} color={textColor}>
         {text || children}
       </Typography>
     </TouchableOpacity>
@@ -36,6 +37,7 @@ Button.propTypes = {
   textColor: PropTypes.string,
   width: PropTypes.string,
   textSize: PropTypes.number,
+  uppercase: PropTypes.bool,
 };
 
 export default Button;
