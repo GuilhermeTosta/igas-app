@@ -59,7 +59,7 @@ const SignUp = () => {
           </View>
         </CredentialsContainer>
       </Container>
-      <View style={{ flex: 0.5 }}>
+      <View style={{ flex: 0.5, backgroundColor: colors.contrast }}>
         <Image
           source={require('../../../assets/bottomImage.png')}
           style={{ height: 440, width: 440 }}

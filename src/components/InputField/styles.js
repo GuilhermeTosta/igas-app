@@ -10,6 +10,7 @@ export const InputArea = styled.View`
   align-items: center;
   margin-bottom: 15px;
   border: 1px solid ${colors.border};
+  background-color: white;
 `;
 export const Input = styled.TextInput`
   flex: 1;

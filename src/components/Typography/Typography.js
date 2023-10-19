@@ -10,7 +10,7 @@ export const Typography = ({
   children,
   color = 'black',
   flex,
-  margin = 'none',
+  margin,
   onPress,
   style,
   text,

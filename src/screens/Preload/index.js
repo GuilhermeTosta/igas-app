@@ -16,8 +16,8 @@ const Preload = () => {
       </Box>
 
       <Box>
-        <Typography bold variant="h6" size={35} text="SIMULATION ONLY" />
-        <Button textColor="white" width={'50%'} onPress={() => navigation.navigate('SignIn')}>
+        <Typography bold variant="h5" size={35} text="SIMULATION ONLY" />
+        <Button textColor="white" width={'50%'} onPress={() => navigation.navigate('MainTab')}>
           Logged
         </Button>
         <Button textColor="white" width={'50%'} onPress={() => navigation.navigate('SignUp')}>
