@@ -16,8 +16,8 @@ export const Card = styled.View`
 `;
 
 export const AvatarImage = styled.Image`
-  border-radius: 100%;
-  height: 50;
-  width: 50;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
   background-color: ${colors.black};
 `;

@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <Container>
-      <Typography size={20} align="center">
+      <Typography margin={8} size={20} align="center">
         Estabelecimentos Proximos
       </Typography>
       <FlatList
