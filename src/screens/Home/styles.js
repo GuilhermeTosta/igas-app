@@ -1,16 +1,16 @@
 import styled from 'styled-components/native';
 import colors from '../../constants/colors';
+import { css } from 'styled-components';
 
-export const Container = styled.SafeAreaView`
+export const Box = css`
   gap: 15px;
   flex: 1;
-  background-color: ${colors.primary};
 `;
 
-export const Card = styled.View`
+export const CardStyle = css`
   width: 90%;
   margin: 0 auto;
-  background-color: ${colors.contrast};
+  background-color: ${colors.primary};
   padding: 8px;
   margin: 15px auto;
 `;

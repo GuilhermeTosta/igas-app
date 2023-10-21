@@ -1,14 +1,15 @@
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
-import { Card as CardStyle, AvatarImage } from '../styles';
+import { AvatarImage, CardStyle } from '../styles';
 import { Typography } from '../../../components/Typography/Typography';
 import React from 'react';
 import Button from '../../../components/Button/Button';
 import colors from '../../../constants/colors';
+import { Box } from '../../../components/SharedComponents/SharedComponents';
 
 const Card = ({ avatar_url, login, id, url }) => {
   return (
-    <CardStyle>
+    <Box css={CardStyle}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 15, marginBottom: 15 }}>
         <AvatarImage src={avatar_url} />
         <Typography>{login}</Typography>
@@ -27,7 +28,7 @@ const Card = ({ avatar_url, login, id, url }) => {
         width="20%"
         textColor={colors.primaryButtonBackground}
       />
-    </CardStyle>
+    </Box>
   );
 };
 
