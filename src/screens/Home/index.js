@@ -22,9 +22,10 @@ const Home = () => {
         <Typography margin={8} size={20} align="center">
           Estabelecimentos Proximos
         </Typography>
-        {data.length !== 0 ? (
+        {data.length === 0 ? (
           <ActivityIndicator />
         ) : (
+          // <ActivityIndicator />
           <FlatList
             data={data}
             renderItem={({ item }) => (

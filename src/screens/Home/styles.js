@@ -1,6 +1,7 @@
-import styled from 'styled-components/native';
-import colors from '../../constants/colors';
 import { css } from 'styled-components';
+import styled from 'styled-components/native';
+
+import colors from '../../constants/colors';
 
 export const Box = css`
   gap: 15px;
@@ -10,9 +11,19 @@ export const Box = css`
 export const CardStyle = css`
   width: 90%;
   margin: 0 auto;
-  background-color: ${colors.primary};
-  padding: 8px;
+  background-color: ${colors.white};
+  padding: 16px;
   margin: 15px auto;
+  border-radius: 10%;
+`;
+
+export const RatingContainer = css`
+  flex-direction: row;
+  height: 15px;
+  width: 100%;
+  gap: 8px;
+  align-items: space-between;
+  justify-content: space-between;
 `;
 
 export const AvatarImage = styled.Image`
