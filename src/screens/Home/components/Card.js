@@ -37,12 +37,14 @@ const Card = ({ avatar_url, login, id, url }) => {
         </Box>
       </View>
 
-      <Button
-        text="Avaliar"
-        variant="text"
-        width="20%"
-        textColor={colors.primaryButtonBackground}
-      />
+      <Box style={{ alignSelf: 'flex-start' }}>
+        <Button
+          text="Avaliar"
+          variant="text"
+          width="100%"
+          textColor={colors.primaryButtonBackground}
+        />
+      </Box>
     </Box>
   );
 };

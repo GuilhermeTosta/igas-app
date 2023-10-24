@@ -14,7 +14,7 @@ export const CardStyle = css`
   background-color: ${colors.white};
   padding: 16px;
   margin: 15px auto;
-  border-radius: 10%;
+  border-radius: 10px;
 `;
 
 export const RatingContainer = css`
