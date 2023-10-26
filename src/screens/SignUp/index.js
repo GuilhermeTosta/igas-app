@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Image } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import { Container, CredentialsContainer } from './styles';
 import InputField from '../../components/InputField/InputField';
@@ -16,7 +17,7 @@ const SignUp = () => {
   };
 
   return (
-    <>
+    <KeyboardAwareScrollView>
       <Container>
         <CredentialsContainer>
           <Typography variant="h1" margin={16} text="Acesse sua conta" />
@@ -65,7 +66,7 @@ const SignUp = () => {
           style={{ height: 440, width: 440 }}
         />
       </View>
-    </>
+    </KeyboardAwareScrollView>
   );
 };
 
