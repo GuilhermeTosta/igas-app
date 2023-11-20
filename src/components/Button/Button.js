@@ -4,6 +4,8 @@ import { TouchableOpacity } from 'react-native';
 
 import { Typography } from '../../components/Typography/Typography';
 import { variants } from './variants';
+import { LoadingIcon } from '../Loading/Loading';
+import colors from '../../constants/colors';
 
 const Button = ({
   onPress,
@@ -14,6 +16,8 @@ const Button = ({
   width,
   textSize = 14,
   uppercase = false,
+  loading,
+  loadingColor = 'black',
 }) => {
   const variantStyles = variants[variant];
   return (
@@ -24,11 +28,12 @@ const Button = ({
         width,
       }}>
       <Typography uppercase={uppercase} variant="h1" bold size={textSize} color={textColor}>
-        {text || children}
+        {loading ? <LoadingIcon size="small" color={loadingColor} /> : text || children}
       </Typography>
     </TouchableOpacity>
   );
 };
+
 Button.propTypes = {
   onPress: PropTypes.func,
   text: PropTypes.string,
@@ -38,6 +43,8 @@ Button.propTypes = {
   width: PropTypes.string,
   textSize: PropTypes.number,
   uppercase: PropTypes.bool,
+  loading: PropTypes.bool,
+  loadingColor: PropTypes.oneOf(Object.values(colors)),
 };
 
 export default Button;

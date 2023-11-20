@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const api = axios.create({
+export const gitHubApi = axios.create({
   baseURL: 'https://api.github.com/',
 });
 
-export default api;
+export const api = axios.create({
+  baseURL: 'https://whatsappbooksy-dev-ed.develop.my.salesforce.com/',
+});

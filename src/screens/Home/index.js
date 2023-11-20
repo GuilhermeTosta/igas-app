@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { FlatList } from 'react-native';
 
-import { FlatList, ActivityIndicator } from 'react-native';
-import api from '../../services/api';
 import * as styles from './styles';
-
 import Card from './components/Card';
-import { Typography } from '../../components/Typography/Typography';
+import { gitHubApi } from '../../services/api';
+import { Loading } from '../../components/Loading/Loading';
 import Container from '../../components/Container/Container';
+import { Typography } from '../../components/Typography/Typography';
 import { Box } from '../../components/SharedComponents/SharedComponents';
 
 const Home = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    api.get('/users').then((resp) => setData(resp.data));
+    gitHubApi.get('/users').then((resp) => setData(resp.data));
   }, []);
 
   return (
@@ -23,9 +23,8 @@ const Home = () => {
           Estabelecimentos Proximos
         </Typography>
         {data.length === 0 ? (
-          <ActivityIndicator />
+          <Loading />
         ) : (
-          // <ActivityIndicator />
           <FlatList
             data={data}
             renderItem={({ item }) => (

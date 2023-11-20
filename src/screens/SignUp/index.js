@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import { View, Image } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { Container, CredentialsContainer } from './styles';
-import InputField from '../../components/InputField/InputField';
-import { Typography } from '../../components/Typography/Typography';
-import Button from '../../components/Button/Button';
 import colors from '../../constants/colors';
+import useLogin from '../../hooks/useLogin';
+import Button from '../../components/Button/Button';
+import { AuthContext } from '../../contexts/AuthContext';
+import { Container, CredentialsContainer } from './styles';
+import { Typography } from '../../components/Typography/Typography';
+import { FormInputField } from '../../components/InputField/InputField';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { control, handleSubmit } = useForm();
 
-  const handleClickOnEnter = () => {
-    console.log(`Credentials: Email: ${email} Password: ${password} `);
+  const { user, setUserData } = useContext(AuthContext);
+
+  const { mutate: loginMutate, isLoading, error } = useLogin();
+
+  const handleClickOnEnter = ({ username, password }) => {
+    loginMutate({ username, password });
   };
 
   return (
@@ -22,25 +28,35 @@ const SignUp = () => {
         <CredentialsContainer>
           <Typography variant="h1" margin={16} text="Acesse sua conta" />
 
-          <InputField
+          <FormInputField
             placeholder="Email"
-            value={email}
-            onChangeText={(value) => setEmail(value)}
+            name="username"
+            control={control}
             isPassword={false}
           />
-          <InputField
+          <FormInputField
             placeholder="Password"
-            value={password}
-            onChangeText={(value) => setPassword(value)}
+            name="password"
+            control={control}
             isPassword={true}
           />
+
           <Button
             text="ENTRAR"
             textColor="white"
             width={'100%'}
             textSize={24}
-            onPress={handleClickOnEnter}
+            onPress={handleSubmit(handleClickOnEnter)}
+            loading={isLoading}
+            loadingColor={colors.white}
           />
+          <View style={{ height: 23 }}>
+            {error && (
+              <Typography color="red">
+                {error.response.data.error_description.toUpperCase()}
+              </Typography>
+            )}
+          </View>
 
           <View style={{ flexDirection: 'row', gap: 15 }}>
             <Button
