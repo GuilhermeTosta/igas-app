@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import { Container, Box } from './styles';
 import { Typography } from '../../components/Typography/Typography';
 import Button from '../../components/Button/Button';
+import useGetAccessToken from '../../hooks/useGetAccessToken';
 
 const Preload = () => {
   const navigation = useNavigation();
+  const { mutate } = useGetAccessToken();
+
+  useEffect(() => {
+    mutate();
+  }, []);
 
   return (
     <Container>

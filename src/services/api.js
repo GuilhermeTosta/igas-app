@@ -5,5 +5,5 @@ export const gitHubApi = axios.create({
 });
 
 export const api = axios.create({
-  baseURL: 'https://whatsappbooksy-dev-ed.develop.my.salesforce.com/',
+  baseURL: 'https://whatsappbooksy-dev-ed.develop.my.salesforce.com/services',
 });
